@@ -31,14 +31,14 @@ const tombolAtas = document.getElementById("tombol-atas");
 
 // CEK DULU: Deteksi jika tombolAtas ada di halaman tersebut
 if (tombolAtas) {
-    // Memunculkan tombol saat di-scroll ke bawah 200px
-    window.onscroll = function() {
-        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+    // Menggunakan window.scrollY yang lebih modern dan didukung semua browser baru
+    window.addEventListener("scroll", function() {
+        if (window.scrollY > 200) {
             tombolAtas.style.display = "block";
         } else {
             tombolAtas.style.display = "none";
         }
-    };
+    });
 
     // Fungsi klik untuk meluncur ke atas
     tombolAtas.addEventListener("click", function() {
