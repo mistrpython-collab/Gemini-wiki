@@ -1,12 +1,24 @@
-// Mengambil elemen dari HTML
+// Mengambil elemen yang benar-benar ada di HTML
 const tombol = document.getElementById("tombol-interaksi");
-const teks = document.getElementById("pesan-teks");
 const gambar = document.getElementById("gemini-img");
 
-// Menambahkan aksi saat tombol diklik
+// Menyiapkan daftar warna-warni pilihan
+const daftarWarna = ["#d93025", "#f4b400", "#0d652d", "#9334e6", "#ff6d00", "#1a73e8"];
+
+// Menambahkan aksi interaktif saat tombol diklik
 tombol.addEventListener("click", function() {
-    teks.textContent = "Halo ThinkyPat26! Senang bisa membantumu belajar Coding & Git hari ini. Terus semangat ya! ✨";
-    gambar.style.transform = "scale(1.2)"; // Membuat gambar sedikit membesar
-    tombol.textContent = "Sapaan Diterima!";
-    tombol.style.backgroundColor = "#0d652d"; // Berubah hijau
+    // Rumus untuk memilih satu warna secara acak dari daftar
+    const warnaAcak = daftarWarna[Math.floor(Math.random() * daftarWarna.length)];
+    
+    // Menerapkan warna acak ke latar belakang tombol
+    tombol.style.backgroundColor = warnaAcak;
+    tombol.textContent = "Sapaan Warna-Warni! 🎨";
+    
+    // Memberikan efek animasi pada gambar
+    gambar.style.transform = "scale(1.2)";
+    
+    // Mengembalikan ukuran gambar setelah 0.3 detik
+    setTimeout(function() {
+        gambar.style.transform = "scale(1)";
+    }, 300);
 });
