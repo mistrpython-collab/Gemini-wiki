@@ -22,3 +22,26 @@ tombol.addEventListener("click", function() {
         gambar.style.transform = "scale(1)";
     }, 300);
 });
+
+// --- FITUR SCROLL TO TOP UNTUK HALAMAN PANJANG ---
+const tombolAtas = document.getElementById("tombol-atas");
+
+// Deteksi jika tombolAtas ada di halaman tersebut
+if (tombolAtas) {
+    // Memunculkan tombol saat di-scroll ke bawah 200px
+    window.onscroll = function() {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            tombolAtas.style.display = "block";
+        } else {
+            tombolAtas.style.display = "none";
+        }
+    };
+
+    // Fungsi klik untuk meluncur ke atas
+    tombolAtas.addEventListener("click", function() {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth" // Efek meluncur mulus
+        });
+    });
+}
